@@ -30,14 +30,12 @@ void cd_dot(data_shell *datash)
 	cp_strtok_pwd = cp_pwd;
 	rev_string(cp_strtok_pwd);
 	cp_strtok_pwd = _strtok(cp_strtok_pwd, "/");
-
 	if (cp_strtok_pwd != NULL)
 	{
 		cp_strtok_pwd = _strtok(NULL, "\0");
 
 		if (cp_strtok_pwd != NULL)
 			rev_string(cp_strtok_pwd);
-
 	}
 	if (cp_strtok_pwd != NULL)
 	{
@@ -46,14 +44,13 @@ void cd_dot(data_shell *datash)
 	}
 	else
 	{
-	chdir("/");
+		chdir("/");
 		set_env("PWD", "/", datash);
-
 	}
 	datash->status = 0;
 	free(cp_pwd);
-
 }
+
 /**
  * cd_to - changes to a directory given
  * by the user
@@ -165,5 +162,4 @@ void cd_to_home(data_shell *datash)
 	set_env("PWD", home, datash);
 	free(p_pwd);
 	datash->status = 0;
-
 }
